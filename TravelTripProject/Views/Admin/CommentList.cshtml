@@ -1,0 +1,32 @@
+﻿@model List<TravelTripProject.Models.Classes.Yorum>
+@{
+    ViewBag.Title = "CommentList";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Yorumlar Listesi</h2>
+<br />
+<table class="table table-bordered">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Kullanıcı</th>
+            <th scope="col">Mail</th>
+            <th scope="col">Yorum</th>
+            <th scope="col">Blog</th>
+            <th scope="col">Sil</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var item in Model) {
+        <tr>
+            <td>@item.KullaniciAdi</td>
+            <td>@item.Mail</td>
+            <td>@item.Yorumlar</td>
+            <td>@item.Blogs.Baslik</td>
+            <td><a href="/Admin/DeleteComment/@item.id" class="btn btn-danger">Sil</a></td>
+        </tr>
+        }
+    </tbody>
+</table>
+
+
